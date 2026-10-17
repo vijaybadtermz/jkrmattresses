@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Canonical XML Sitemap for Google Search Console
+Sitemap: https://www.jkrmattress.site/sitemap.xml

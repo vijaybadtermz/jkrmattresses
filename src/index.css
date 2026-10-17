@@ -1,0 +1,199 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-ivory: #F7F4EE;
+    --color-cream: #EAE2D6;
+    --color-sand: #D4C1A7;
+    --color-espresso: #302820;
+    --color-charcoal: #242321;
+    --color-bronze: #A68B65;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', 'Noto Sans Tamil', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--color-ivory);
+    color: var(--color-espresso);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .font-serif {
+    font-family: 'Cormorant Garamond', 'Noto Sans Tamil', Georgia, serif;
+  }
+
+  .font-display {
+    font-family: 'Cinzel', 'Noto Sans Tamil', serif;
+  }
+
+  .font-sans {
+    font-family: 'Plus Jakarta Sans', 'Noto Sans Tamil', -apple-system, sans-serif;
+  }
+}
+
+/* Tamil Language Specific Typography Refinements */
+html:lang(ta),
+html[lang="ta"] {
+  font-size: 89%; /* Proportional rem scaling across entire UI */
+}
+
+:lang(ta) {
+  font-family: 'Noto Sans Tamil', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.55;
+}
+
+/* Strictly disable letter-spacing in Tamil so vowel markers and ligatures never break */
+:lang(ta),
+:lang(ta) *,
+:lang(ta) *::before,
+:lang(ta) *::after {
+  letter-spacing: 0 !important;
+  word-spacing: normal !important;
+}
+
+:lang(ta) h1,
+:lang(ta) h2,
+:lang(ta) h3,
+:lang(ta) h4,
+:lang(ta) h5,
+:lang(ta) h6,
+:lang(ta) .font-serif,
+:lang(ta) .font-display {
+  font-family: 'Noto Sans Tamil', 'Cormorant Garamond', sans-serif;
+  letter-spacing: 0 !important;
+}
+
+/* Headings scale down to match Latin visual balance */
+:lang(ta) h1 {
+  font-size: clamp(1.85rem, 4vw, 3.25rem) !important;
+  line-height: 1.25 !important;
+  font-weight: 700;
+}
+
+:lang(ta) h2 {
+  font-size: clamp(1.4rem, 3vw, 2.15rem) !important;
+  line-height: 1.3 !important;
+  font-weight: 600;
+}
+
+:lang(ta) h3 {
+  font-size: clamp(1.15rem, 2.2vw, 1.45rem) !important;
+  line-height: 1.35 !important;
+  font-weight: 600;
+}
+
+:lang(ta) h4 {
+  font-size: clamp(1rem, 1.6vw, 1.2rem) !important;
+  line-height: 1.4 !important;
+  font-weight: 600;
+}
+
+/* Specific component refinements in Tamil */
+:lang(ta) .product-card-title {
+  font-size: 1.15rem !important;
+  line-height: 1.35 !important;
+  font-weight: 600 !important;
+}
+
+:lang(ta) .hero-headline {
+  font-size: clamp(2rem, 5.5vw, 4rem) !important;
+  line-height: 1.2 !important;
+}
+
+:lang(ta) button,
+:lang(ta) .badge,
+:lang(ta) nav a {
+  text-transform: none !important;
+}
+
+/* Luxury Shimmer & Glow Animations */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(150%); }
+}
+
+.shimmer-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-effect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+  transform: translateX(-100%);
+  animation: shimmer 3s infinite;
+}
+
+.text-gold-gradient {
+  background: linear-gradient(135deg, #F3E7D3 0%, #D4C1A7 50%, #A68B65 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gold-gradient-dark {
+  background: linear-gradient(135deg, #A68B65 0%, #7A5F3B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Luxury Glassmorphism & Custom Accents */
+.glass-header {
+  background: rgba(247, 244, 238, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(212, 193, 167, 0.25);
+}
+
+.glass-header-dark {
+  background: rgba(36, 35, 33, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(166, 139, 101, 0.2);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(212, 193, 167, 0.4);
+}
+
+.glass-card-dark {
+  background: rgba(48, 40, 32, 0.7);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(166, 139, 101, 0.3);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F7F4EE;
+}
+::-webkit-scrollbar-thumb {
+  background: #D4C1A7;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #A68B65;
+}
+
+/* Subtle luxury glow effect */
+.gold-glow {
+  box-shadow: 0 0 30px rgba(166, 139, 101, 0.15);
+}
+
+/* Slow image subtle movement for cinematic feel */
+@keyframes subtleZoom {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
+.animate-subtle-zoom {
+  animation: subtleZoom 24s ease-in-out infinite alternate;
+}
